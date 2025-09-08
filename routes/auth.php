@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\AdminAuthController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -17,10 +19,12 @@ Route::middleware('guest')->group(function () {
 
     Route::post('register', [RegisteredUserController::class, 'store']);
 
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])
-        ->name('login');
+    Route::get('login', [AuthController::class, 'create'])
+        ->name('login-page');
 
-    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('login', [AuthController::class, 'login'])->name('login');
+
+    Route::post('signup', [AuthController::class, 'signUp'])->name('sign-up');
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
         ->name('password.request');
@@ -33,6 +37,12 @@ Route::middleware('guest')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
         ->name('password.store');
+
+    Route::group(['prefix' => '/admin'], function () {
+        Route::get('login', [AdminAuthController::class, 'create'])->name('admin-login');
+
+        Route::post('login', [AdminAuthController::class, 'login'])->name('login-admin');
+    });
 });
 
 Route::middleware('auth')->group(function () {

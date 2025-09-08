@@ -23,7 +23,8 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('login'), {
+    console.log('got here');
+    form.post(route('login-admin'), {
         onFinish: () => form.reset('password'),
     });
 };
@@ -48,7 +49,7 @@ const submit = () => {
                     v-model="form.email"
                     required
                     autofocus
-                    autocomplete="username"
+                    autocomplete="email"
                 />
 
                 <InputError class="mt-2" :message="form.errors.email" />

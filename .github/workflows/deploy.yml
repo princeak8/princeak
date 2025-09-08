@@ -24,14 +24,14 @@ jobs:
     - name: Pull latest changes from GitHub
       run: |
         ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@premium188.web-hosting.com -p21098 << 'EOF'
-        cd /home/princeak
+        cd /home/zizimnnf/princeak
         git pull https://${{ secrets.GH_ACCESS_TOKEN }}@github.com/princeak8/princeak.git main
         EOF
 
     - name: Run post-deployment scripts
       run: |
         ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@premium188.web-hosting.com -p21098 << 'EOF'
-        cd /home/princeak
+        cd /home/zizimnnf/princeak
 
         # Run migrations for the main database
         php artisan migrate --force

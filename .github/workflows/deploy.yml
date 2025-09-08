@@ -48,6 +48,7 @@ jobs:
         php artisan cache:clear
         php artisan view:clear
 
+        nvm use 20.19.2
         npm install
         npm run build
 

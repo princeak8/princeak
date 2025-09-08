@@ -25,7 +25,7 @@
                     <div class="flex items-start space-x-4">
                         <div class="flex-shrink-0">
                             <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
-                                {{ comment?.user?.name ?? comment.user.name.charAt(0).toUpperCase() }}
+                                {{ comment?.user?.name ? comment.user.name.charAt(0).toUpperCase() : '' }}
                             </div>
                         </div>
                         <div class="flex-1">
@@ -41,7 +41,7 @@
                                     <div class="flex items-start space-x-4">
                                         <div class="flex-shrink-0">
                                             <div class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-xs">
-                                                {{ reply?.user?.name ?? reply.user.name.charAt(0).toUpperCase() }}
+                                                {{ reply?.user?.name ? reply.user.name.charAt(0).toUpperCase() : '' }}
                                             </div>
                                         </div>
                                         <div class="flex-1">

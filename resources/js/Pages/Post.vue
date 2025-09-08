@@ -4,7 +4,7 @@
         <img :src="post.coverPhoto.url" :alt="post.title" class="w-full h-96 object-cover">
         <div class="p-8">
           <div class="flex items-center text-sm text-gray-500 mb-4">
-            <span v-if="post.category" class="mr-4">{{ post.category.name }}</span>
+            <span v-if="post.category" class="mr-4">{{ post?.category?.name }}</span>
             <span>{{ post.commentsCount }} comments</span>
           </div>
           <h1 class="text-3xl font-bold text-gray-900 mb-6">{{ post.title }}</h1>

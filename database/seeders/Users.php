@@ -17,7 +17,22 @@ class Users extends Seeder
     public function run(): void
     {
         $users = [
-            
+            "name" => "Akachukwu",
+            "email" => "akalodave@gmail.com",
+            "role" => Role::ADMIN->value,
+            "password" => "akalo123"
         ]; 
+
+        foreach($users as $user) {
+            $userObj = User::where("email", $user['email'])->first();
+            if(!$userObj) {
+                $userObj = new User;
+                $userObj->name = $user['name'];
+                $userObj->email = $user['email'];
+                $userObj->role = $user['role'];
+                $userObj->password = $user['password'];
+                $userObj->save();
+            }
+        }
     }
 }

@@ -17,10 +17,12 @@ class Users extends Seeder
     public function run(): void
     {
         $users = [
-            "name" => "Akachukwu",
-            "email" => "akalodave@gmail.com",
-            "role" => Role::ADMIN->value,
-            "password" => "akalo123"
+            [
+                "name" => "Akachukwu",
+                "email" => "akalodave@gmail.com",
+                "role" => Role::ADMIN->value,
+                "password" => "akalo123"
+            ]
         ]; 
 
         foreach($users as $user) {

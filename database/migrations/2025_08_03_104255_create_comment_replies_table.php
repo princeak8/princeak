@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comment_replies', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
             $table->foreignId("comment_id");
             $table->foreignId("user_id");

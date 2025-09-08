@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('jobs', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
             $table->string('queue')->index();
             $table->longText('payload');
@@ -22,7 +23,7 @@ return new class extends Migration
         });
 
         Schema::create('job_batches', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('key', 191)->primary();
             $table->string('name');
             $table->integer('total_jobs');
             $table->integer('pending_jobs');
@@ -35,6 +36,7 @@ return new class extends Migration
         });
 
         Schema::create('failed_jobs', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
             $table->string('uuid')->unique();
             $table->text('connection');

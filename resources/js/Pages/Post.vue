@@ -25,12 +25,12 @@
                     <div class="flex items-start space-x-4">
                         <div class="flex-shrink-0">
                             <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
-                                {{ comment.user.name.charAt(0).toUpperCase() }}
+                                {{ comment?.user?.name ?? comment.user.name.charAt(0).toUpperCase() }}
                             </div>
                         </div>
                         <div class="flex-1">
                             <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-medium text-gray-900">{{ comment.user.name }}</h3>
+                                <h3 class="text-sm font-medium text-gray-900">{{ comment?.user?.name }}</h3>
                                 <span class="text-sm text-gray-500">{{ formatDate(comment.createdAt) }}</span>
                             </div>
                             <p class="text-gray-600 mt-1">{{ comment.message }}</p>
@@ -41,12 +41,12 @@
                                     <div class="flex items-start space-x-4">
                                         <div class="flex-shrink-0">
                                             <div class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-xs">
-                                                {{ reply.user.name.charAt(0).toUpperCase() }}
+                                                {{ reply?.user?.name ?? reply.user.name.charAt(0).toUpperCase() }}
                                             </div>
                                         </div>
                                         <div class="flex-1">
                                             <div class="flex items-center justify-between">
-                                                <h3 class="text-sm font-medium text-gray-900">{{ reply.user.name }}</h3>
+                                                <h3 class="text-sm font-medium text-gray-900">{{ reply?.user?.name }}</h3>
                                                 <span class="text-sm text-gray-500">{{ formatDate(reply.createdAt) }}</span>
                                             </div>
                                             <p class="text-gray-600 mt-1">{{ reply.message }}</p>

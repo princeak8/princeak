@@ -11,7 +11,7 @@
           <div class="prose max-w-none mb-8" v-html="post.content"></div>
           
           <div class="flex space-x-2 mb-8">
-            <span v-for="tag in post.tags" :key="tag.id" class="text-sm bg-gray-100 text-gray-800 px-3 py-1 rounded-full">
+            <span v-if="post?.tags && post.tags.length > 0" v-for="tag in post.tags" :key="tag.id" class="text-sm bg-gray-100 text-gray-800 px-3 py-1 rounded-full">
               {{ tag.name }}
             </span>
           </div>

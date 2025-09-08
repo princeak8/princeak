@@ -48,6 +48,9 @@ jobs:
         php artisan cache:clear
         php artisan view:clear
 
+        npm install
+        npm run build
+
         # Create Request Docs
         # php artisan laravel-request-docs:export
 
